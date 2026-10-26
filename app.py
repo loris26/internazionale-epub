@@ -10,7 +10,10 @@ st.title("📚 Convertitore Internazionale in EPUB")
 st.markdown("Carica il PDF della rivista *Internazionale* per generare un EPUB strutturato con sezioni, immagini e indice gerarchico.")
 
 # Recupera la chiave API da Streamlit Secrets se configurata, altrimenti chiede input
-default_key = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+try:
+    default_key = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+except FileNotFoundError:
+    default_key = os.getenv("GEMINI_API_KEY", "")
 api_key = st.text_input("Inserisci la tua Gemini API Key", type="password", value=default_key)
 
 uploaded_file = st.file_uploader("Scegli il file PDF di Internazionale", type=["pdf"])
