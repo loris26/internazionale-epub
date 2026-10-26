@@ -29,7 +29,7 @@ MAX_RETRIES = 5
 RENDER_DPI = 150
 JPEG_QUALITY = 80
 PAGES_PER_BATCH = 2
-DEFAULT_MODEL = "gemini-1.5-flash"
+DEFAULT_MODEL = "gemini-2.5-flash"
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 GEMINI_PROMPT = """
